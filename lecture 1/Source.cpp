@@ -62,19 +62,36 @@ void bubblesort(int arr[], int size) {
 	} while (swapped == true);
 }
 
-int main() {
-	int x[8] = { 1,2,17,4,23,47,88,9 };
-	int y[5] = { 4,3,2,8,1 };
-	std::cout << "Hello world!" << std::endl;
-	std::cout << add(4, 5) << std::endl;
-	evenuneven(5);
-	evenuneven(6);
-	std::cout << square(4, 4) << std::endl;
-	std::cout << isPrime(2011) << std::endl;
-	std::cout << search(x, 8, 10) << std::endl;
-	bubblesort(y, 4);
-	for (int n : y) {
-		std::cout << n << std::endl;
+int GCD(int left, int right) {
+	if (left % right != 0) {
+		 return GCD(right, (left % right));
 	}
-	return 0;
+	else {
+		return right;
+	}
+	
 }
+
+int LCM(int left, int right) {
+	int quotient = left * right;
+	int divisor = GCD(left,right);
+	return quotient / divisor;
+}
+
+//int main() {
+//	int x[8] = { 1,2,17,4,23,47,88,9 };
+//	int y[5] = { 4,3,2,8,1 };
+//	std::cout << "Hello world!" << std::endl;
+//	std::cout << add(4, 5) << std::endl;
+//	evenuneven(5);
+//	evenuneven(6);
+//	std::cout << square(4, 4) << std::endl;
+//	std::cout << isPrime(2011) << std::endl;
+//	std::cout << search(x, 8, 10) << std::endl;
+//	bubblesort(y, 4);
+//	for (int n : y) {
+//		std::cout << n << std::endl;
+//	}
+//	std::cout << GCD(160,16) << std::endl;
+//	return 0;
+//}
