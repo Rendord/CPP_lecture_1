@@ -34,7 +34,7 @@ void showStudents(const char filename[]) {
     file.open(filename, std::ios::binary);
     while (!file.eof())
     {
-        file.read((char*)&student, sizeof(student));
+		file.read((char*)& student, sizeof(student));
         if (!file.eof()) {
             std::cout << student.number << " " << student.name << std::endl;
             std::cout << student.birth.day << " " << student.birth.month << " " << student.birth.year << std::endl;
@@ -83,6 +83,18 @@ bool palindrome(char string[]) {
     return true;
 }
 
+void readTextFile(const char name[]) {
+	std::ifstream file;
+	char o;
+	file.open(name, std::ios::binary);
+	file >> o;
+		while (!file.eof()) {		
+			std::cout << o << std::endl;
+			file >> o;
+		}
+		file.close();
+}
+
 
 
 
@@ -114,6 +126,8 @@ int main()
     
     std::cout << strlen(arr) << std::endl;
     std::cout << palindrome(arr) << std::endl;
+
+	readTextFile("professionalism.txt");
     
 
     //int integer = 10;
