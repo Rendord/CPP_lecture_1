@@ -6,6 +6,15 @@
 #include <iostream>
 #include <cstring>
 
+struct PlayerState
+{
+    char name[20];
+    int level;
+    double health;
+    int experience;
+
+};
+
 struct Fraction
 {
     int numerator;
@@ -87,11 +96,12 @@ void readTextFile(const char name[]) {
 	std::ifstream file;
 	char o;
 	file.open(name, std::ios::binary);
-	file >> o;
+	file.get(o);
 		while (!file.eof()) {		
-			std::cout << o << std::endl;
-			file >> o;
+            std::cout.put(o);
+			file.get(o);
 		}
+        std::cout << std::endl;
 		file.close();
 }
 
@@ -128,6 +138,54 @@ int main()
     std::cout << palindrome(arr) << std::endl;
 
 	readTextFile("professionalism.txt");
+
+    PlayerState playerlist[3];
+
+    char name1[] = "Klaas";
+
+    playerlist[0].level = 172;
+    strcpy_s(playerlist[0].name, "Klaas Vaak");
+    playerlist[0].health = 100;
+    playerlist[0].experience = 1567;
+
+    playerlist[1].level = 76;
+    strcpy_s(playerlist[1].name, "Albert Einstein");
+    playerlist[1].health = 0;
+    playerlist[1].experience = 9999;
+
+    playerlist[2].level = 35;
+    strcpy_s(playerlist[2].name, "Lady Gaga");
+    playerlist[2].health = 55.7;
+    playerlist[2].experience = 1337;
+
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << "name:" << playerlist[i].name << " level: " << playerlist[i].level << " health: " << playerlist[i].health << " experience: " << playerlist[i].experience << std::endl;
+    }
+
+    std::ofstream gamedata;
+    
+    gamedata.open("game.dat", std::ios::binary);
+    for (int i = 0; i < 3; i++)
+    {
+        gamedata.write((char*)&playerlist[i], sizeof(playerlist[i]));
+    }
+    gamedata.close();
+
+    std::ifstream inputgamedata;
+    PlayerState currentplayer;
+
+    inputgamedata.open("game.dat", std::ios::binary);
+    for (int i = 0; i < 3; i++)
+    {
+        inputgamedata.read((char*)&currentplayer, sizeof(currentplayer));
+        std::cout << currentplayer.name << std::endl;
+    }
+
+
+
+
+    
     
 
     //int integer = 10;
