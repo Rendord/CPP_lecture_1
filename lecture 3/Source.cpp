@@ -16,8 +16,8 @@ int CompareWithoutPointers(int a, int b) {
 int compareChar(const void* a, const void* b)
 {
     if (*(char*)a < *(char*)b) return -1;
-    if (*(char*)a == *(char*)b) return 0;
-    if (*(char*)a > * (char*)b) return 1;
+    else if (*(char*)a == *(char*)b) return 0;
+    else return 1;
 }
 
 int CompareWithPointers(const void* a, const void* b)
@@ -46,7 +46,7 @@ int CompareAsPerSlides(const void* pa, const void* pb) {
         return  1;
 }
 
-void main() 
+int main() 
 {
-    
+    std::cout << "Hello World!" << std::endl;
 }
