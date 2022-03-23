@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 
 struct PlayerState
 {
@@ -104,6 +105,9 @@ void readTextFile(const char name[]) {
         std::cout << std::endl;
 		file.close();
 }
+
+
+
 
 
 
