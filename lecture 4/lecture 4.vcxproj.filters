@@ -21,9 +21,24 @@
     <ClCompile Include="MyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="myinheritedclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="superclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="superclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="myinheritedclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="abstractclass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
