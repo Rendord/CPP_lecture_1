@@ -46,6 +46,45 @@ int CompareAsPerSlides(const void* pa, const void* pb) {
         return  1;
 }
 
+void SwapPointers(int** a, int** b) {
+	int* swappointer = *a;
+	*a = *b;
+	*b = swappointer;
+}
+
+void PascalsTriangle(int** pointer, int n) {
+	pointer = new int* [n];
+	for (int i = 0; i < n; i++)
+	{
+		pointer[i] = new int [i + 1];
+		for (int j = 0; j < i + 1; j++)
+		{
+			if (j == 0 || j == i) {
+				pointer[i][j] = 1;
+				std::cout << pointer[i][j];
+				
+			}
+			else { 
+				pointer[i][j] = pointer[i - 1][j - 1] + pointer[i - 1][j];
+				std::cout << pointer[i][j];
+			}
+		}
+		std::cout << std::endl;
+	}
+}
+
+void PrintPascalsTriangle(int** pointer, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < i + 1; j++)
+		{
+			std::cout << pointer[i][j];
+		}
+		std::cout << std::endl;
+	}
+}
+
 int main() 
 {
     std::cout << "Hello World!" << std::endl;
@@ -112,6 +151,55 @@ int main()
 		std::cout << c[i] << " ";
 	}
 	std::cout << std::endl;
+
+	int abe = 3;
+	int betsy = 4;
+
+	int* patrick = &abe;
+	int* queen = &betsy;
+
+	std::cout << "patrick: " << patrick << " queen: " << queen << std::endl;
+
+	
+	int* dk = *&queen;
+	*&queen = *&patrick;
+	*&patrick = dk;
+
+	
+	std::cout << dk << std::endl;
+	
+	std::cout << "patrick: " << patrick << " queen: " << queen << std::endl;
+
+	int* p, *q, *f;
+
+	p = new int();
+	q = new int();
+
+	*p = 2;
+	*q = 3;
+
+	std::cout << *p << " " << *q << std::endl;
+
+	delete p, q, f;
+
+	
+	int* z[5]; 
+
+	int* j;
+
+
+	int* pascal;
+	int depth = 6;
+
+	PascalsTriangle(&pascal, 6);
+	PrintPascalsTriangle(&pascal, 6);
+
+	//*j[0] = 5;
+
+	//read access violation
+	//std::cout << *p << " " << *q << std::endl;
+
+
 
 	////print header text
 	//std::cout << "\n" << "Quicksort with int pointers: " << std::endl;
