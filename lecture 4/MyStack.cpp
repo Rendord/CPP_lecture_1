@@ -11,12 +11,13 @@ MyStack::~MyStack()
 {
 	if (top != NULL)
 	{
-		Block* next = new Block();
-		next = top;
-		while (next->next != NULL)
+		Block* next;
+		next = top->next;
+		while (next != NULL)
 		{				
 			delete top;
-			top = next->next;
+			top = next;
+			next = next->next;
 		}	
 		delete top;
 	}
