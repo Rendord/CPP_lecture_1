@@ -8,8 +8,13 @@ private:
 	int* p;
 
 public:
-	MyClass(int);
+	MyClass();
 	MyClass(int, int);
+	~MyClass(); 
 	void twoTimes();
+	void setX(int);
+	void setP(int);
+	void removeP();
+	void print();
 	std::string toString();
 };
